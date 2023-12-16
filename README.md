@@ -18,7 +18,7 @@
 </ul>
 <h4>For Cross browser parallel execution using java selenium Cucumber with Support on Remote Server Execution Kindly checkout below branch</h4>
 <ul>
-<li><a href="[https://github.com/RathodNS/RathodNS/tree/Java-Selenium-Cucumber](https://github.com/RathodNS/RathodNS/tree/MultiBrowser-Parallel-Execution-Framework)">Java-Selenium-Cucumber with cross browser on Remote Server</a></li>
+<li><a href="https://github.com/RathodNS/RathodNS/tree/MultiBrowser-Parallel-Execution-Framework">Java-Selenium-Cucumber with cross browser and Parallel execution on Remote Server</a></li>
 	</li>
 </ul>
 
