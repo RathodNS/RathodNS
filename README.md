@@ -1,6 +1,7 @@
 <h1 align="center">Hi 👋, I'm Rathod Nandu Singh</h1>
-<h3 align="center">A passionate Software Automation Test Engineer from India</h3>
+<h3 align="center">A passionate Software development Engineer in Test (SDET) from India</h3>
 
+<h4 align="center"> Thanks for visiting Would be Pushing the code very soon <h4>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=rathodns&label=Profile%20views&color=0e75b6&style=flat" alt="rathodns" /> </p>
 
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
