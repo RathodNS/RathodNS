@@ -24,7 +24,7 @@ public class MyHooks {
 	
 	@Before
 	public void SetupDrivers(Scenario sceanrio) throws Exception {
-		driver= DriverFactory.getDriver("Chrome");
+		driver= DriverFactory.getDriver("chrome");
 		context.driver=driver;
 		System.out.println("Setting up driver for the Sceanrio:"+sceanrio.getName());
 	}
@@ -37,5 +37,7 @@ public class MyHooks {
 			byte[] filecontent = FileUtils.readFileToByteArray(SourceFile);
 			scenario.attach(filecontent, "image/png", "image");
 		}
+		driver.quit();
+		System.out.println("*********quit test ***********");
 	}
 }
