@@ -13,6 +13,7 @@ import drivers.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import utilities.ConfiLoader;
 
 public class MyHooks {
 
@@ -24,7 +25,7 @@ public class MyHooks {
 	
 	@Before
 	public void SetupDrivers(Scenario sceanrio) throws Exception {
-		driver= DriverFactory.getDriver("chrome");
+		driver= DriverFactory.getDriver(ConfiLoader.getInstance().GetBrowser());
 		context.driver=driver;
 		System.out.println("Setting up driver for the Sceanrio:"+sceanrio.getName());
 	}

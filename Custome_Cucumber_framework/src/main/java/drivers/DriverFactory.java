@@ -3,6 +3,7 @@ package drivers;
 import org.openqa.selenium.WebDriver;
 
 import browserOption.BrowserOptions;
+import constants.DriverType;
 
 
 /**
@@ -17,22 +18,24 @@ public class DriverFactory {
 	 * @param browserName as paramter
 	 * @return the WebDriver instance
 	 */
-	public static WebDriver getDriver(String browserName) {
+//	public static WebDriver getDriver(String browserName) {
+	public static WebDriver getDriver(DriverType browserName) {
+
 		WebDriver driver;
 		BrowserOptions options = new BrowserOptions();
 		
 		switch(browserName) {
 		
-		case "chrome":
+		case CHROME:
 			driver =options.SetChromeOptions();
 			break;
-		case "firefox":
+		case FIREFOX:
 			driver= options.SetFireFoxOptions();
 			break;
-		case "edge":
+		case EDGE:
 			driver = options.SetEdgeOptions();
 			break;
-		case "safari":
+		case SAFARI:
 			driver = options.setSafariOptions();
 			break;	
 			default:

@@ -2,6 +2,7 @@ package utilities;
 
 import java.util.Properties;
 
+import constants.DriverType;
 import constants.Env_Type;
 
 public class ConfiLoader {
@@ -35,10 +36,24 @@ public class ConfiLoader {
 		else throw new RuntimeException("Target is not specified in SIT propertyfile");
 	}
 	
-	public String getbrowser() {
-		String prop = props.getProperty("browser");
-		if(prop!=null) return prop;
-		else throw new RuntimeException("Target is not specified in SIT propertyfile");
+	public DriverType GetBrowser() {
+		String browser = props.getProperty("browser");
+		
+		switch (browser) {
+		case "chrome":
+			return DriverType.CHROME;
+		case "firefox":
+			return DriverType.FIREFOX;
+		case "edge":
+			return DriverType.EDGE;
+		case "safari":
+			return DriverType.SAFARI;
+		default: 
+			throw new RuntimeException(
+                    "Browser name key value in configuration file is not matched: " + browser);
+		}
+		
+		
 	}
 	public String getBaseUrl() {
 		String prop = props.getProperty("baseURL");

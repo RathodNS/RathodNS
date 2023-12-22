@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/java/features", // Path to feature files
 	    glue = {"steps","Hooks"},// Package where your step definitions are located
-//	    monochrome=true,
+	    monochrome=true,
 	    plugin = {"pretty", "html:target/cucumber-reports","summary",
 	    		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"} // Plugins for test reporting
 		)
