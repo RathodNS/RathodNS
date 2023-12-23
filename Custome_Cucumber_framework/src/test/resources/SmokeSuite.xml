@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Suite name="smoke Suite">
+<suite name="smoke Suite">
 	<test name="Smoke">
-		<Classes>
+		<classes>
 			<class name="Runner.TestRunner">
 			</class>
-		</Classes>
+		</classes>
 	</test>
-</Suite>
+</suite>
