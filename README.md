@@ -1,11 +1,11 @@
 <h1 align="center">Hi 👋, I'm Rathod Nandu Singh</h1>
-<h3 align="center">A passionate Software development Engineer in Test(SDET) from India</h3>
+<h3 align="center">A passionate Software development Engineer in Test (SDET) from India</h3>
 
-- 🌱 I’m currently learning **Appium,Playwright,JavaScript**
+- 🌱 I’m currently learning **Rest-assured,Appium,Playwright,JavaScript**
 
-- 💬 Ask me about **Java,Selenium,BDD-Cucumber,TestNG,Karate FrameWork,Automation(UI+API)**
+- 💬 Ask me about **Java,Selenium,BDD-Cucumber,TestNG,Karate FrameWork,Automation(UI+API) ,Jenkins**
 
-- 📫 How to reach me **rathod.singh@yahoo.com**
+- 📫 How to reach me **rathod.singh@yahoo.com / +917259852372**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
