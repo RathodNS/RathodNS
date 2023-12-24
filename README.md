@@ -1,7 +1,14 @@
 <h1 align="center">Hi 👋, I'm Rathod Nandu Singh</h1>
+<<<<<<< HEAD
 <h3 align="center">A passionate Software development Engineer in Test(SDET) from India</h3>
 
 - 🌱 I’m currently learning **Appium,Playwright,JavaScript**
+=======
+<h3 align="center">A passionate Software development Engineer in Test (SDET) from India</h3>
+
+<h4 align="center"> Thanks for visiting Would be Pushing the code very soon <h4>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=rathodns&label=Profile%20views&color=0e75b6&style=flat" alt="rathodns" /> </p>
+>>>>>>> 29679057048bcd51164fa748028a552638900964
 
 - 💬 Ask me about **Java,Selenium,BDD-Cucumber,TestNG,Karate FrameWork,Automation(UI+API)**
 
