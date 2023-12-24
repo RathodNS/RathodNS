@@ -2,8 +2,8 @@ package utilities;
 
 import java.time.Duration;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,7 +11,7 @@ import pages.BasePage;
 
 public class WaitUtils extends BasePage {
 	int webDriverWaitTime =160;
-	public WaitUtils(WebDriver driver) {
+	public WaitUtils(RemoteWebDriver driver) {
 		super(driver);
 	}
 

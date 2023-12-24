@@ -1,14 +1,14 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import utilities.WebUtils;
 
 public class DashboardPage extends WebUtils {
 
-	public DashboardPage(WebDriver driver) {
+	public DashboardPage(RemoteWebDriver driver) {
 		super(driver);
 	}
 	

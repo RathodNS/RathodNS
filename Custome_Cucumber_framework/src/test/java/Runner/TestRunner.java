@@ -1,9 +1,19 @@
 package Runner;
 
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 
+import constants.ExecutionTarget;
+import drivers.Driver;
+import drivers.DriverFactory;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import io.cucumber.testng.TestNGCucumberRunner;
+import utilities.ConfiLoader;
 
 /**
  * This Class starts the execution using given cucumber options
@@ -20,10 +30,44 @@ import io.cucumber.testng.CucumberOptions;
 		)
 public class TestRunner extends AbstractTestNGCucumberTests {
 	
-	@Override
-	@DataProvider(parallel=true)
-	public Object[][] scenarios(){
-		return super.scenarios();
+	
+	private TestNGCucumberRunner testNG_Cucumber;
+	
+	@BeforeClass(alwaysRun = true)
+	public void setUpCucumber() {
+		this.testNG_Cucumber = new TestNGCucumberRunner(this.getClass());
 	}
 
+	@BeforeMethod(alwaysRun = true)
+	@Parameters({ "browser","version","OS" })
+	public void setupDriver(String browser,String version, String OS) throws Exception {
+		RemoteWebDriver driver;
+
+		ExecutionTarget executionEnvTarget = ConfiLoader.getInstance().getTarget();
+
+		switch (executionEnvTarget) {
+		case Remote:
+			driver = DriverFactory.getRemoteDriver(browser,version,OS);
+			Driver.initializeDriver(driver);
+			break;
+		case Local:
+			driver = (RemoteWebDriver) DriverFactory.getDriver(ConfiLoader.getInstance().GetBrowser(browser));
+			Driver.initializeDriver(driver);
+			break;
+		}
+
+	}
+	
+	@DataProvider(parallel=true)
+	public Object[][] features() {
+		return testNG_Cucumber.provideScenarios();
+	}
+	
+	
+
+	@AfterClass
+	public void tearDown() {
+		testNG_Cucumber.finish();
+		Driver.quitDriver();
+	}
 }

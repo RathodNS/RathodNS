@@ -5,15 +5,15 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
 import utilities.WaitUtils;
 
 public class CommonObjectsPage extends BasePage {
 
-	public CommonObjectsPage(WebDriver driver) {
+	public CommonObjectsPage(RemoteWebDriver driver) {
 		super(driver);
 	}
 

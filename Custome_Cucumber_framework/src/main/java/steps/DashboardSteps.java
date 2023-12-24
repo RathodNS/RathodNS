@@ -1,26 +1,28 @@
 package steps;
 
-import context.TestContext;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import drivers.RemoteDriverFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CommonObjectsPage;
 import pages.DashboardPage;
-import pages.PageObjectsManager;
 
 public class DashboardSteps {
 
-	private final DashboardPage DashboardPage;
-	private final CommonObjectsPage CommonObjectsPage;
+	public RemoteWebDriver driver = RemoteDriverFactory.getDriver();
+	private final DashboardPage DashboardPage=new DashboardPage(driver);
+	private final CommonObjectsPage CommonObjectsPage= new CommonObjectsPage(driver);
 	
 //	public DashboardSteps(TestContext context) {
 //	 DashboardPage = new DashboardPage(context.driver);
 //	 CommonObjectsPage = new CommonObjectsPage(context.driver);
 //	}
 	
-	public DashboardSteps(TestContext context) {
-		 DashboardPage = PageObjectsManager.getDashboardPage(context.driver);
-		 CommonObjectsPage = PageObjectsManager.getCommonObjectsPage(context.driver);
-		}
+//	public DashboardSteps(TestContext context) {
+//		 DashboardPage = PageObjectsManager.getDashboardPage(context.driver);
+//		 CommonObjectsPage = PageObjectsManager.getCommonObjectsPage(context.driver);
+//		}
 	
 		
 	@When("user clicks on Admin menu from left panel")

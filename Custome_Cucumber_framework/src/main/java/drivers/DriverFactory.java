@@ -1,6 +1,12 @@
 package drivers;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import browserOption.BrowserOptions;
 import constants.DriverType;
@@ -18,7 +24,6 @@ public class DriverFactory {
 	 * @param browserName as paramter
 	 * @return the WebDriver instance
 	 */
-//	public static WebDriver getDriver(String browserName) {
 	public static WebDriver getDriver(DriverType browserName) {
 
 		WebDriver driver;
@@ -44,4 +49,31 @@ public class DriverFactory {
 		return driver;
 	}
 	
+	public static RemoteWebDriver getRemoteDriver(String browser,String version,String OS) throws Exception {
+
+		RemoteWebDriver driver=null;
+		
+		String URL="@hub.lambdatest.com/wd/hub";
+		String username = "nandusinghrathod786";
+		String accesskey = "xlN3EyaGbymEC8CnSgeO0SVQNVH7NBUt7zPT1OhyS0wps2M1rV";
+		
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("browserName", browser);
+		caps.setCapability("browserVersion", version);
+
+		HashMap<String,Object> Customoptions = new HashMap<String,Object>();		
+		Customoptions.put("platformName", OS);
+		Customoptions.put("build", "Build:3");
+		Customoptions.put("project", "MultiThreaded");
+		Customoptions.put("name", "End-End");
+		Customoptions.put("console", "true");
+		
+		caps.setCapability("LT:Options", Customoptions);
+		
+		String gridURL = "https://"+username+":"+accesskey+URL;
+		System.err.println("Hub URL:"+gridURL);
+		driver = new RemoteWebDriver(new URL(gridURL),caps); 
+				
+		return driver;
+	}
 }

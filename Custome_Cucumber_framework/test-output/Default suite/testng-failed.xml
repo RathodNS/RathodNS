@@ -6,8 +6,11 @@
       <class name="Runner.TestRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0 1"/>
+          <include name="setUpCucumber"/>
+          <include name="runScenario"/>
           <include name="tearDownClass"/>
+          <include name="setupDriver"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- Runner.TestRunner -->
     </classes>

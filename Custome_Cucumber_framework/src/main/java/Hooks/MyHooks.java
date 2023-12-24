@@ -4,17 +4,13 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-
-import context.TestContext;
-import drivers.DriverFactory;
+import constants.ExecutionTarget;
+import drivers.Driver;
+import drivers.RemoteDriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -22,13 +18,9 @@ import utilities.ConfiLoader;
 
 public class MyHooks {
 
-	private WebDriver driver;
-	private final TestContext context;
-//	public static ExtentTest extenttest;
-	public MyHooks(TestContext context) {
-		this.context=context;
-	}
-	
+//	private WebDriver driver;
+
+	private RemoteWebDriver driver = RemoteDriverFactory.getDriver();
 	
 	 /**
      * Before is a cucumber hook that executes before each scenario executes
@@ -36,18 +28,14 @@ public class MyHooks {
      *
      * @param scenario - The Scenario object
      */
-	@Before
-	public void SetupDrivers(Scenario sceanrio) throws Exception {
-		driver= DriverFactory.getDriver(ConfiLoader.getInstance().GetBrowser());
-		context.driver=driver;
-//		Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-//		String browserName = caps.getBrowserName();
-//		String browserVersion = caps.getBrowserVersion();
-		
-//		extenttest.log(Status.INFO, "Running in:"+browserName+" "+browserVersion);
-		System.out.println("Setting up driver for the Sceanrio:"+sceanrio.getName());
-	}
-	
+		@Before
+		public void SetupDrivers(Scenario sceanrio) throws Exception {
+			ExecutionTarget target = ConfiLoader.getInstance().getTarget();
+			if(target==ExecutionTarget.Remote) {
+	        driver.executeScript("lambda-name=" + sceanrio.getName());
+	        }
+			System.out.println("Started Execution for the Sceanrio:" + sceanrio.getName());
+		}
 	
 	
 	/**
@@ -63,7 +51,9 @@ public class MyHooks {
 			byte[] filecontent = FileUtils.readFileToByteArray(SourceFile);
 			scenario.attach(filecontent, "image/png", "image");
 		}
-		driver.quit();
+//		driver.quit();
+		System.out.println(driver.getSessionId());
+		Driver.quitDriver();
 		System.out.println("*********quit test ***********");
 	}
 }

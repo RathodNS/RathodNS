@@ -1,24 +1,31 @@
 package steps;
 
-import context.TestContext;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import drivers.RemoteDriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CommonObjectsPage;
 import pages.LoginPage;
-import pages.PageObjectsManager;
 import utilities.ConfiLoader;
 
 public class LoginSteps {
 	
-	private  LoginPage LoginPage;
-	private  CommonObjectsPage CommonObjectsPage;
+//	private  LoginPage LoginPage;
+//	private  CommonObjectsPage CommonObjectsPage;
 	
-	public LoginSteps(TestContext context) {
-		LoginPage = PageObjectsManager.getLoginPage(context.driver);
-		CommonObjectsPage = PageObjectsManager.getCommonObjectsPage(context.driver);
-	}
+//	public LoginSteps(TestContext context) {
+//		LoginPage = PageObjectsManager.getLoginPage(context.driver);
+//		CommonObjectsPage = PageObjectsManager.getCommonObjectsPage(context.driver);
+//	}
+	public RemoteWebDriver driver = RemoteDriverFactory.getDriver();
+	private final LoginPage LoginPage = new LoginPage(driver);
+	private final CommonObjectsPage CommonObjectsPage = new CommonObjectsPage(driver);
 
+
+
+	
 	@Given("user is on the login Page of APplication")
 	public void user_is_on_the_login_page_of_a_pplication() throws Exception {
 	    LoginPage.LoadApplication();

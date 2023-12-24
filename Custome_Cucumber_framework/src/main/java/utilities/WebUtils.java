@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import drivers.RemoteDriverFactory;
 import pages.BasePage;
 /**
  * 
@@ -20,9 +21,10 @@ import pages.BasePage;
 public class WebUtils extends BasePage {
 
 
-	public WebUtils(WebDriver driver) {
+	public WebUtils(RemoteWebDriver driver) {
 		super(driver);
 	}
+	protected RemoteWebDriver driver=RemoteDriverFactory.getDriver();
 
 	public void setTextMethod(WebElement element, String text) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));

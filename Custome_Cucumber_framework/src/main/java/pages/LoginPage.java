@@ -1,14 +1,14 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import utilities.WebUtils;
 
 public class LoginPage extends WebUtils {
 
-	public LoginPage(WebDriver driver) {
+	public LoginPage(RemoteWebDriver driver) {
 		super(driver);
 	}
 	

@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import constants.DriverType;
 import constants.Env_Type;
+import constants.ExecutionTarget;
 
 public class ConfiLoader {
 
@@ -36,8 +37,8 @@ public class ConfiLoader {
 		else throw new RuntimeException("Target is not specified in SIT propertyfile");
 	}
 	
-	public DriverType GetBrowser() {
-		String browser = props.getProperty("browser");
+	public DriverType GetBrowser(String browser) {
+//		String browser = props.getProperty("browser");
 		
 		switch (browser) {
 		case "chrome":
@@ -54,6 +55,19 @@ public class ConfiLoader {
 		}
 		
 		
+	}
+	
+	public ExecutionTarget getTarget() {
+		String target = props.getProperty("Target");
+		
+		switch(target) {
+			case "Local":
+			return ExecutionTarget.Local;
+			case "Remote":
+			return ExecutionTarget.Remote;
+			default:
+			throw new RuntimeException("Execution Target key value in Configuration is not matched: "+target);
+		}
 	}
 	public String getBaseUrl() {
 		String prop = props.getProperty("baseURL");
